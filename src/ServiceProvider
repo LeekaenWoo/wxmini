@@ -1,0 +1,45 @@
+<?php
+
+namespace Leekaen\WXMini;
+
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+
+class ServiceProvider extends BaseServiceProvider
+{
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = true;
+
+    public function boot()
+    {
+        $config_file = __DIR__ . '/../config/wxmini.php';
+        $this->mergeConfigFrom($config_file, 'wxmini');
+        $this->publishes([
+            $config_file => config_path('wxmini.php'),
+        ], 'wxmini');
+    }
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->bind('wxmini', function () {
+            return new WXMini();
+        });
+        $this->app->alias('wxmini', WXMini::class);
+    }
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['wxmini', WXMini::class];
+    }
+}
