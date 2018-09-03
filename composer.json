@@ -1,0 +1,30 @@
+{
+    "name": "leekaen/wxmini",
+    "description": "wechat mini program",
+    "type": "library",
+    "keywords": ["laravel", "wechat", "mini program"],
+    "homepage": "https://github.com/LeekaenWoo/wxmini",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "LeekaenWoo",
+            "email": "leekaen1990@outlook.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": "~5.6"
+    },
+    "autoload": {
+        "psr-4": 
+            "Leekaen\\WXMini\\": "src/"
+        },
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Leekaen\\WXMini\\ServiceProvider"
+            ],
+        }
+    }
+}
