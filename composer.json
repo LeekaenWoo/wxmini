@@ -19,5 +19,6 @@
         "psr-4": {
             "Leekaen\\WXMini\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
